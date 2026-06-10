@@ -1,18 +1,45 @@
 {
 	"compilerOptions": {
-		"target": "ES2017",
+		/* ── Language & environment ────────────────────────────────── */
+		"target": "ES2022",
 		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"noEmit": true,
-		"esModuleInterop": true,
 		"module": "esnext",
 		"moduleResolution": "bundler",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
+		"moduleDetection": "force",
 		"jsx": "react-jsx",
+
+		/* ── Strictness: everything on ─────────────────────────────── */
+		"strict": true,
+		"noUncheckedIndexedAccess": true,
+		"exactOptionalPropertyTypes": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"allowUnreachableCode": false,
+		"allowUnusedLabels": false,
+		"forceConsistentCasingInFileNames": true,
+
+		/* ── Module hygiene ────────────────────────────────────────────
+		 * verbatimModuleSyntax: type imports must use `import type`,
+		 *   so bundlers can drop them without a type checker.
+		 * erasableSyntaxOnly: bans enums/namespaces/ctor parameter
+		 *   properties — only syntax that erases to plain JS (matches
+		 *   Node.js/Bun native TS stripping).                          */
+		"verbatimModuleSyntax": true,
+		"erasableSyntaxOnly": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+
+		/* ── Output & performance ──────────────────────────────────── */
+		"noEmit": true,
+		"skipLibCheck": true,
 		"incremental": true,
+		"allowJs": true,
+
 		"plugins": [
 			{
 				"name": "next"
@@ -21,7 +48,7 @@
 		"paths": {
 			"@/*": ["./src/*"]
 		},
-		"types": ["./env.d.ts", "node"]
+		"types": ["./env.d.ts", "node", "bun"]
 	},
 	"include": [
 		"next-env.d.ts",

@@ -55,6 +55,22 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Learn More
 
+Supported Next.js features
+ App Router
+ Route Handlers
+ Dynamic routes
+ Static Site Generation (SSG)
+ Server-Side Rendering (SSR)
+ Middleware
+ X NO Node Middleware introduced in 15.2 are not yet supported
+ Image optimization (See this guide to configure Cloudflare Images)
+ Partial Prerendering (PPR)
+ Pages Router
+ Incremental Static Regeneration (ISR)
+ Support for after
+ Composable Caching ('use cache')
+ Turbopack
+
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.

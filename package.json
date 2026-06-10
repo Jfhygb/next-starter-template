@@ -13,31 +13,48 @@
 	},
 	"dependencies": {
 		"@opennextjs/cloudflare": "1.14.0",
+		"better-auth": "^1.6.16",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"drizzle-orm": "^0.45.2",
+		"lucide-react": "^1.17.0",
 		"next": "16.0.7",
+		"radix-ui": "^1.5.0",
 		"react": "19.2.1",
-		"react-dom": "19.2.1"
+		"react-dom": "19.2.1",
+		"shadcn": "^4.11.0",
+		"tailwind-merge": "^3.6.0",
+		"tw-animate-css": "^1.4.0",
+		"zod": "^4.4.3",
+		"zustand": "^5.0.14"
 	},
 	"devDependencies": {
-		"@eslint/eslintrc": "3",
+		"@biomejs/biome": "^2.4.16",
 		"@tailwindcss/postcss": "4.1.17",
+		"@types/bun": "^1.3.14",
 		"@types/node": "24.10.1",
 		"@types/react": "19.2.7",
 		"@types/react-dom": "19.2.3",
-		"eslint": "9.39.2",
-		"eslint-config-next": "16.0.7",
+		"babel-plugin-react-compiler": "^1.0.0",
+		"drizzle-kit": "^0.31.10",
+		"knip": "^6.16.1",
 		"tailwindcss": "4.1.17",
 		"typescript": "5.9.3",
 		"wrangler": "4.88.0"
 	},
 	"private": true,
 	"scripts": {
-		"build": "next build",
+		"build": "bun --bun next build",
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
-		"check": "npm run build && tsc",
+		"check": "bun run build && tsc && knip",
 		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-		"dev": "next dev",
-		"lint": "next lint",
+		"dev": "bun --bun next dev",
+		"lint": "biome check .",
+		"format": "biome format --write .",
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-		"start": "next start"
+		"start": "bun --bun next start",
+		"db:generate": "drizzle-kit generate",
+		"knip": "knip",
+		"db:migrate": "bun run src/db/migrate.ts"
 	}
 }
